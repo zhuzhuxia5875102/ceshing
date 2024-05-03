@@ -15,7 +15,7 @@ module.exports = {
   },
   optimization: {
     runtimeChunk: false
-  },   
+  },
   resolve: {
     alias: {
       ...sharedMappings.getAliases(),
@@ -33,8 +33,8 @@ module.exports = {
         // filename: "remoteEntry.js",
         // exposes: {
         //     './Component': './/src/app/app.component.ts',
-        // },        
-        
+        // },
+
         // For hosts (please adjust)
         // remotes: {
         //     "mfe1": "http://localhost:3000/remoteEntry.js",
@@ -42,14 +42,19 @@ module.exports = {
         // },
 
         shared: share({
-          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+          // "@angular/core": { singleton: false, strictVersion: false, requiredVersion: 'auto' },
+          // "@angular/common": { singleton: false, strictVersion: false, requiredVersion: 'auto' },
+          // "@angular/common/http": { singleton: false, strictVersion: false, requiredVersion: 'auto' },
+          // "@angular/router": { singleton: false, strictVersion: false, requiredVersion: 'auto' },
+
+          "@angular/core": {requiredVersion: 'auto' },
+          "@angular/common": {requiredVersion: 'auto' },
+          "@angular/common/http": {requiredVersion: 'auto' },
+          "@angular/router": {requiredVersion: 'auto' },
 
           ...sharedMappings.getDescriptors()
         })
-        
+
     }),
     sharedMappings.getPlugin()
   ],
